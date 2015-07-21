@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+
+    <link rel="import" href="../../paper-input/paper-input.html">
+    <link rel="import" href="../page-title.html">
+  </head>
+  <body>
+
+    <dom-module id="x-demo">
+      <style>
+        :host {
+          display: block;
+        }
+      </style>
+      <template>
+
+        <page-title
+          base-title="{{baseTitle}}"
+          divider="{{divider}}"
+          title="{{title}}"
+          direction="{{direction}}"
+          computed-title="{{currentTitle}}"></page-title>
+
+        <div class="container">
+          <h1>page-title</h1>
+
+          <paper-input label="Base Title" value="{{baseTitle}}"></paper-input>
+          <paper-input label="Divider" value="{{divider}}"></paper-input>
+          <paper-input label="Title" value="{{title}}"></paper-input>
+
+          <select on-change="_directionChanged">
+            <option value="standard">standard</option>
+            <option value="reversed">reversed</option>
+          </select>
+
+          <h3>Current title: <span>[[currentTitle]]</span></h3>
+
+        </div>
+
+      </template>
+    </dom-module>
+
+    <script>
+      Polymer({
+        is: 'x-demo',
+        properties: {
+          baseTitle: {
+            type: String,
+            value: 'zacharytamas'
+          },
+          divider: {
+            type: String,
+            value: '-'
+          },
+          title: {
+            type: String,
+            value: 'Home'
+          },
+          direction: {
+            type: String,
+            value: 'standard'
+          }
+        },
+
+        _directionChanged: function(event) {
+          var selectedIndex = event.target.selectedIndex;
+          this.direction = this.$$('select').querySelectorAll('option')[selectedIndex].value;
+        }
+      });
+    </script>
+
+    <x-demo></x-demo>
+
+
+  </body>
+</html>
