@@ -1,5 +1,7 @@
 # page-title
 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://beta.webcomponents.org/element/zacharytamas/page-title)
+
 A Polymer element for updating the title of a webpage declaratively, possibly
 automatically, using Polymer bindings. Example:
 
