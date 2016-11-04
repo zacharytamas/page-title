@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.1
+- Add missing `dom-module` wrapper.
+
 ## 1.2.0
 - Updated Polymer dependency to allowe newer versions of Polymer.
   - This makes Bower dependency resolution easier. Not sure why it was pinned to begin with.
