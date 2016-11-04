@@ -36,7 +36,7 @@ automatically, using Polymer bindings. Example:
        */
       divider: {
         type: String,
-        value: '-'
+        value: ' - '
       },
 
       /**
@@ -90,7 +90,7 @@ automatically, using Polymer bindings. Example:
         return;
       }
 
-      document.title = pieces.join(" " + divider + " ");
+      document.title = pieces.join(divider);
       this._setComputedTitle(document.title);
     }
   });
