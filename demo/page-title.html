@@ -20,7 +20,7 @@
         <page-title
           base-title="{{baseTitle}}"
           divider="{{divider}}"
-          title="{{title}}"
+          page-title="{{pageTitle}}"
           direction="{{direction}}"
           computed-title="{{currentTitle}}"></page-title>
 
@@ -29,7 +29,7 @@
 
           <paper-input label="Base Title" value="{{baseTitle}}"></paper-input>
           <paper-input label="Divider" value="{{divider}}"></paper-input>
-          <paper-input label="Title" value="{{title}}"></paper-input>
+          <paper-input label="Page Title" value="{{pageTitle}}"></paper-input>
 
           <select on-change="_directionChanged">
             <option value="standard">standard</option>
@@ -55,7 +55,7 @@
             type: String,
             value: '-'
           },
-          title: {
+          pageTitle: {
             type: String,
             value: 'Home'
           },

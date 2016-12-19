@@ -4,7 +4,7 @@
 A headless element for updating the title of a webpage declaratively, possibly
 automatically, using Polymer bindings. Example:
 
-    <page-title base-title="zacharytamas" title="Home"></page-title>
+    <page-title base-title="zacharytamas" page-title="Home"></page-title>
 
 @group utility
 @element page-title
@@ -45,7 +45,7 @@ automatically, using Polymer bindings. Example:
        *
        * @type String
        */
-      title: {
+      pageTitle: {
         type: String
       },
 
@@ -55,7 +55,7 @@ automatically, using Polymer bindings. Example:
        *
        *  | Value | Meaning |
        *  | standard | `baseTitle` comes first. |
-       *  | reversed | `title` comes first. |
+       *  | reversed | `pageTitle` comes first. |
        *
        * @type String
        * @default 'standard'
@@ -76,16 +76,16 @@ automatically, using Polymer bindings. Example:
     },
 
     observers: [
-      '_updatePageTitle(baseTitle, divider, title, direction)'
+      '_updatePageTitle(baseTitle, divider, pageTitle, direction)'
     ],
 
-    _updatePageTitle: function(baseTitle, divider, title, direction) {
+    _updatePageTitle: function(baseTitle, divider, pageTitle, direction) {
       var pieces;
 
       if (direction == 'standard') {
-        pieces = (baseTitle) ? [baseTitle, title] : [title];
+        pieces = (baseTitle) ? [baseTitle, pageTitle] : [pageTitle];
       } else if (direction == 'reversed') {
-        pieces = (baseTitle) ? [title, baseTitle] : [title];
+        pieces = (baseTitle) ? [pageTitle, baseTitle] : [pageTitle];
       } else {
         console.warn("page-title - Did not recognize `direction` property.");
         return;
