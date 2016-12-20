@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.0
+- **BREAKING** Change the name of the `title` property to be `pageTitle`. This is friendlier with Googlebot, we've found.
+
 ## 1.2.1
 - Add missing `dom-module` wrapper.
 
