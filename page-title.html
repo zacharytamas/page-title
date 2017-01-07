@@ -80,12 +80,20 @@ automatically, using Polymer bindings. Example:
     ],
 
     _updatePageTitle: function(baseTitle, divider, pageTitle, direction) {
-      var pieces;
+      var pieces = [];
+
+      if (pageTitle) {
+        pieces.push(pageTitle);
+      }
 
       if (direction == 'standard') {
-        pieces = (baseTitle) ? [baseTitle, pageTitle] : [pageTitle];
+        if (baseTitle) {
+          pieces.unshift(baseTitle)
+        }
       } else if (direction == 'reversed') {
-        pieces = (baseTitle) ? [pageTitle, baseTitle] : [pageTitle];
+        if (baseTitle) {
+          pieces.push(baseTitle)
+        }
       } else {
         console.warn("page-title - Did not recognize `direction` property.");
         return;
