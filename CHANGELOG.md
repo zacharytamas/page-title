@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0
+- **BREAKING** updated to Polymer 2, nothing else changed on the element
+  - updated element to use the Polymer 2 syntax
+  - updated demo to use iron-demo-helpers
+  - updated index documentation to version 3 of iron-component-page
+
 ## 2.0.0
 - **BREAKING** Change the name of the `title` property to be `pageTitle`. This is friendlier with Googlebot, we've found.
 

@@ -1,4 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 
 <!--
 A headless element for updating the title of a webpage declaratively, possibly
@@ -12,74 +12,77 @@ automatically, using Polymer bindings. Example:
 -->
 <dom-module id="page-title">
 <script>
-  Polymer({
-    is: 'page-title',
+  class PageTitle extends Polymer.Element {
+    static get is() {return 'page-title'}
+    static get properties() {
+      return {
+        /**
+         * The base title of your webpage which never changes. Possibly the
+         * name of your application. Optional.
+         *
+         * @type String
+         * @default ''
+         */
+        baseTitle: {
+          type: String,
+          value: ''
+        },
 
-    properties: {
-      /**
-       * The base title of your webpage which never changes. Possibly the
-       * name of your application. Optional.
-       *
-       * @type String
-       * @default ''
-       */
-      baseTitle: {
-        type: String,
-        value: ''
-      },
+        /**
+         * The divider to be used between your base title and title, if a
+         * base title is supplied. Optional.
+         *
+         * @type String
+         * @default ' - '
+         */
+        divider: {
+          type: String,
+          value: ' - '
+        },
 
-      /**
-       * The divider to be used between your base title and title, if a
-       * base title is supplied. Optional.
-       *
-       * @type String
-       * @default ' - '
-       */
-      divider: {
-        type: String,
-        value: ' - '
-      },
+        /**
+         * The current title of your webpage.
+         *
+         * @type String
+         */
+        pageTitle: {
+          type: String
+        },
 
-      /**
-       * The current title of your webpage.
-       *
-       * @type String
-       */
-      pageTitle: {
-        type: String
-      },
+        /**
+         * The direction your base title and title should be shown.
+         * Defaults to `standard`. Can be one of these values:
+         *
+         *  | Value | Meaning |
+         *  | standard | `baseTitle` comes first. |
+         *  | reversed | `pageTitle` comes first. |
+         *
+         * @type String
+         * @default 'standard'
+         */
+        direction: {
+          type: String,
+          value: 'standard'
+        },
 
-      /**
-       * The direction your base title and title should be shown.
-       * Defaults to `standard`. Can be one of these values:
-       *
-       *  | Value | Meaning |
-       *  | standard | `baseTitle` comes first. |
-       *  | reversed | `pageTitle` comes first. |
-       *
-       * @type String
-       * @default 'standard'
-       */
-      direction: {
-        type: String,
-        value: 'standard'
-      },
-
-      /**
-       * The current title as computed by the element.
-       */
-      computedTitle: {
-        type: String,
-        readOnly: true,
-        notify: true
+        /**
+         * The current title as computed by the element.
+         */
+        computedTitle: {
+          type: String,
+          readOnly: true,
+          notify: true
+        }
       }
-    },
+    }
 
-    observers: [
-      '_updatePageTitle(baseTitle, divider, pageTitle, direction)'
-    ],
+    static get observers() {
+      return [
+        '_updatePageTitle(baseTitle, divider, pageTitle, direction)'
+      ]
+    }
 
-    _updatePageTitle: function(baseTitle, divider, pageTitle, direction) {
+    _updatePageTitle(baseTitle, divider, pageTitle, direction) {
       var pieces = [];
 
       if (pageTitle) {
@@ -102,6 +105,8 @@ automatically, using Polymer bindings. Example:
       document.title = pieces.join(divider);
       this._setComputedTitle(document.title);
     }
-  });
+  }
+
+  window.customElements.define(PageTitle.is, PageTitle);
 </script>
 </dom-module>

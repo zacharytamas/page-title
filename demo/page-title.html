@@ -1,79 +1,38 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
+    <title>page-title demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-demo-helpers/url-bar.html">
     <link rel="import" href="../../paper-input/paper-input.html">
     <link rel="import" href="../page-title.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
   </head>
   <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic page-title demo</h3>
 
-    <dom-module id="x-demo">
-      <style>
-        :host {
-          display: block;
-        }
-      </style>
-      <template>
-
-        <page-title
-          base-title="{{baseTitle}}"
-          divider="{{divider}}"
-          page-title="{{pageTitle}}"
-          direction="{{direction}}"
-          computed-title="{{currentTitle}}"></page-title>
-
-        <div class="container">
-          <h1>page-title</h1>
-
-          <paper-input label="Base Title" value="{{baseTitle}}"></paper-input>
-          <paper-input label="Divider" value="{{divider}}"></paper-input>
-          <paper-input label="Page Title" value="{{pageTitle}}"></paper-input>
-
-          <select on-change="_directionChanged">
-            <option value="standard">standard</option>
-            <option value="reversed">reversed</option>
-          </select>
-
-          <h3>Current title: <span>[[currentTitle]]</span></h3>
-
-        </div>
-
-      </template>
-    </dom-module>
-
-    <script>
-      Polymer({
-        is: 'x-demo',
-        properties: {
-          baseTitle: {
-            type: String,
-            value: 'zacharytamas'
-          },
-          divider: {
-            type: String,
-            value: '-'
-          },
-          pageTitle: {
-            type: String,
-            value: 'Home'
-          },
-          direction: {
-            type: String,
-            value: 'standard'
-          }
-        },
-
-        _directionChanged: function(event) {
-          var selectedIndex = event.target.selectedIndex;
-          this.direction = this.$$('select').querySelectorAll('option')[selectedIndex].value;
-        }
-      });
-    </script>
-
-    <x-demo></x-demo>
-
-
+      <demo-snippet>
+        <template>
+          <page-title
+          base-title="page-title"
+          divider=" - "
+          page-title="demoTitle"
+          direction="standard"></page-title>
+        </template>
+      </demo-snippet>
+    </div>
   </body>
 </html>
+
