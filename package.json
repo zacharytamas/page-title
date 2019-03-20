@@ -1,0 +1,28 @@
+{
+  "description": "A Polymer element for easily updating a webpage's title, such as in a SPA.",
+  "keywords": [
+    "web-components",
+    "polymer"
+  ],
+  "homepage": "https://github.com/zacharytamas/page-title",
+  "name": "polymer-page-title",
+  "version": "4.0.0",
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0"
+  },
+  "main": "page-title.js",
+  "author": "Zachary Jones <zacharytamas@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-component-page": "^4.0.0",
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.1"
+  }
+}

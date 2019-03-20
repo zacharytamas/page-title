@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>page-title demo</title>
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+
+  <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+  <script type="module" src="../node_modules/@polymer/iron-demo-helpers/demo-snippet.js"></script>
+  <script type="module" src="../node_modules/@polymer/iron-demo-helpers/url-bar.js"></script>
+  <script type="module" src="../page-title.js"></script>
+
+  <script type="module">
+    const $_documentContainer = document.createElement('template');
+
+    $_documentContainer.innerHTML = `<custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>`;
+
+    document.body.appendChild($_documentContainer.content);
+  </script>
+</head>
+
+<body>
+  <script type="module">
+    const $_documentContainer = document.createElement('template');
+
+    $_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+      <h3>Basic page-title demo</h3>
+
+      <demo-snippet>
+        <template>
+          <page-title base-title="page-title" divider=" - " page-title="demoTitle" direction="standard"></page-title>
+        </template>
+      </demo-snippet>
+    </div>`;
+
+    document.body.appendChild($_documentContainer.content);
+  </script>
+</body>
+
+</html>
